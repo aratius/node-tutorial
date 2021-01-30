@@ -12,7 +12,10 @@ server.listen(3000)
 console.log('Server started');
 
 function getFromClient(req, res){
-  const content = ejs.render(index_page)
+  const content = ejs.render(index_page, {
+    title: "Node.js tutorial",
+    content: "this is sample page made by template"
+  })
   res.writeHead(200, {'Content-type': 'text/html'})
   res.write(content)
   res.end()
